@@ -21,14 +21,14 @@
       "options": [
         {
           "text": "Great",
-          "value": "10"
+          "points": "10"
 }, {
           "text": "Not so Great",
-          "value": "5"
+          "points": "5"
         },
         {
           "text": "Awful",
-          "value": "0"
+          "points": "0"
 } ]
 }, {
       "type": "boolean",
