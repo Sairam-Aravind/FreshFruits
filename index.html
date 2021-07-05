@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FreshFruits</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="container" onload="main()"> 
+    <header>
+            <h3 class="headline3">FreshFruits</h3>
+    </header>
+    <div class="survey-start" id="survey-start">
+            <h2 class="headline2">Hi! 👋</h2>
+            <p class="subtitle1">Help us get some insights into the quality of our products </p>
+            <button class="contained" id="proceed-btn" onclick="onclickProceed()">
+                <span class="button-contents">
+                    <p class="caption">
+                        Proceed
+                    </p>
+                    <img src="assets/arrow-right.png" alt="arrow-right">
+                </span>
+            </button>
+        </div>
+    <div class="survey-container" id="survey-container">
+        <h4 class="headline4" id="question"></h4>
+        <!-- <div class="tab-container" id="rating">
+           <div class="rating-item">
+            <input type="radio" name="tabs" id="tab1" checked />
+            <label for="tab1">Tab1</label>
+           </div>
+           <div class="selected-tab">
+                <input type="radio" name="tabs" id="tab1" checked />
+                <label for="tab1">Tab1</label>
+               </div>
+        </div>
+        <div class="radio-button-container" id="boolean">
+        <div class = "normal-radio-button">
+                <img src="/assets/radio-checkt.png" alt="checked">
+                <input type="radio" name="tabs" id="tab1" checked />
+                <label for="tab1">Tab1</label>
+        </div>
+        <div class = "normal-radio-button">
+                <img src="/assets/radio-check.png" alt="unchecked">
+                <input type="radio" name="tabs" id="tab1" checked />
+                <label for="tab1">Tab1</label>
+        </div>
+        </div>
+        <div id="textarea-container">
+            <textarea name="comments" id="text" cols="75" rows="10" placeholder="Add your comments here" style="resize: none; display: none;"></textarea>
+        </div> -->
+        <div class="nav-button-container">
+                <button class="outlined">
+                        <span class="button-contents" onclick="onclickBack()">
+                             <img src="assets/arrow-left.png" alt="arrow-left">
+                            <p class="caption">
+                                Back
+                            </p>
+                        </span>
+                </button>
+                    <button class="contained" onclick="onClickNext()" >
+                            <span class="button-contents">
+                                <p class="caption" id="Next">
+                                    Next
+                                </p>
+                                <img src="assets/arrow-right.png" alt="arrow-right">
+                            </span>
+                </button>
+        </div>
+    </div>
+    <div class="survey-end" id="survey-end">
+            <img src="/assets/Empty State - Positive.png" alt="finished">
+        </div>
+    <script type="text/javascript" src="App.js"></script>
+</body>
+</html>
