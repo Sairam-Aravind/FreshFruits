@@ -131,10 +131,6 @@ const genrateQnA = (prevIndex,index) => {
     document.getElementById("survey-container").insertBefore(tabContainerdiv,navButton)
     document.getElementById(question[index].type).style.display = "flex"
     let length = question.length-1
-    if(parseInt(index)===length) {
-        let nextButton = document.getElementById("Next")
-        nextButton.innerHTML = "Submit"
-    }
 }
 const onclickProceed = () => {
     localStorage.setItem("index",0)
