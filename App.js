@@ -43,10 +43,10 @@ const loadFirst = async() => {
 }
 // this method controls the entire content that is rendered apart from the first page. it removes the contents of the old tag and replaces them with new tags based on the questions json
 const genrateQnA = (prevIndex,index) => {
+    let question = JSON.parse(localStorage.getItem("questions"))
     document.getElementById("survey-start").style.display = "none"
     document.getElementById("survey-container").style.display = "flex"
     document.getElementById("survey-end").style.display = "none"
-    let question = JSON.parse(localStorage.getItem("questions"))
     let answers = localStorage.getItem("answers")
     answers = answers.split(",")
     document.getElementById("question").innerHTML = question[index].question
@@ -61,13 +61,7 @@ const genrateQnA = (prevIndex,index) => {
     if(question[index].type === 'text') {
         let div = document.createElement('div')
         div.className = `${question[index].type}-item`
-        element = document.createElement('textarea')
-        element.name = 'comments'
-        element.id = 'text'
-        element.cols = '75'
-        element.rows = '10'
-        element.style = "resize: none;"
-        element.placeholder = "Any Comments"
+        let element = createtextelement()
         element.addEventListener('change', function() {
             answers[index] = this.value
             localStorage.setItem("answers",answers)
@@ -114,20 +108,7 @@ const genrateQnA = (prevIndex,index) => {
         div.append(label)
         tabContainerdiv.append(div)
         })
-        switch (question[index].type) {
-            case "rating" : {
-                tabContainerdiv.className = 'tab-container'
-                break
-            }
-            case "boolean": {
-                tabContainerdiv.className = 'radio-button-container'
-                break
-            }
-            case "text": {
-                tabContainerdiv.className = 'text-area-container'
-                break
-            }
-        }
+        tabContainerdiv = setClassName(tabContainerdiv,question[index].type)
 }
     let navButton = document.getElementsByClassName("nav-button-container")[0]
     document.getElementById("survey-container").insertBefore(tabContainerdiv,navButton)
@@ -136,6 +117,39 @@ const genrateQnA = (prevIndex,index) => {
     let nextButton = document.getElementById("Next")
     parseInt(index)===length? nextButton.innerHTML = "Submit" : nextButton.innerHTML = "Next"
 }
+
+const setClassName = (tabContainerdiv,type) => {
+    switch (type) {
+        case "rating" : {
+            tabContainerdiv.className = 'tab-container'
+            break
+        }
+        case "boolean": {
+            tabContainerdiv.className = 'radio-button-container'
+            break
+        }
+        case "text": {
+            tabContainerdiv.className = 'text-area-container'
+            break
+        }
+        default : {
+            tabContainerdiv.className = 'changed'
+        }
+    }
+    return tabContainerdiv
+}
+
+const createtextelement = () => {
+    element = document.createElement('textarea')
+    element.name = 'comments'
+    element.id = 'text'
+    element.cols = '75'
+    element.rows = '10'
+    element.style = "resize: none;"
+    element.placeholder = "Add your answer here"
+    return element
+}
+
 const onclickProceed = () => {
     localStorage.setItem("index",0)
     document.getElementById("survey-start").style.display = "none"
