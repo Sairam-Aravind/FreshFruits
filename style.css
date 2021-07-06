@@ -2,7 +2,7 @@ p{
     margin: 0px;
 }
 button{
-    margin: 10px 0px;
+    margin: 30px 0px;
     padding: 10px;
     outline: none;
     height: 48px;
@@ -64,8 +64,6 @@ body{
 .contained {
     background: #0F56B3;
     color: #C5DCFA;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 .button-contents{
     display: flex;

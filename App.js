@@ -2,7 +2,6 @@
 const main = () => {
     let index = localStorage.getItem("index")
     if (index!==null) {
-        console.log(index)
         genrateQnA(index,index)
     } else {
         loadFirst()
@@ -14,7 +13,6 @@ const loadFirst = async() => {
     document.getElementById("survey-end").style.display = "none"
     document.getElementById("survey-container").style.display = "none"
     let proceedButton=document.getElementById("proceed-btn")
-    console.log(proceedButton)
     proceedButton.style.backgroundColor = "grey"
     proceedButton.style.cursor = "not-allowed"
     let questions = await fetch('https://my-json-server.typicode.com/Sairam-Aravind/FreshFruits/questions')
@@ -149,7 +147,8 @@ const onclickProceed = () => {
 //Controls what happes on clicking the next button or submit button
 const onClickNext = () => {
    let index = localStorage.getItem("index")
-   if(index ==="3"){
+   let questions = JSON.parse(localStorage.getItem("questions"))
+   if(parseInt(index)===questions.length-1){
     // on submit it removes all the data that is stored in the browser's local storage
     document.getElementById("survey-start").style.display = "none"
     document.getElementById("survey-container").style.display = "none"
@@ -172,7 +171,6 @@ const onClickNext = () => {
 
 const onclickBack = () => {
     let index = localStorage.getItem("index")
-    console.log(index)
     if(index<1){
         localStorage.removeItem("index")
         localStorage.removeItem("questions")
@@ -186,5 +184,14 @@ const onclickBack = () => {
 
 const sendAnswers = (answers) => {
     console.log(answers)
+    var data = new FormData();
+    data.append( "json", JSON.stringify(answers) );
+    fetch("https://my-json-server.typicode.com/Sairam-Aravind/FreshFruits/questions",
+    {
+    method: "POST",
+    body: data
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){ alert( JSON.stringify( data ) ) })
     //sends the data for permanent storage
 }
