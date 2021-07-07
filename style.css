@@ -50,7 +50,7 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   margin: auto 60px;
-  height: 75vh;
+  height: 60vh;
 }
 .survey-start {
   display: none;
@@ -101,6 +101,7 @@ body {
 }
 .rating-item label {
   color: #0f56b3;
+  cursor: pointer;
 }
 .selected-tab {
   background: white;
