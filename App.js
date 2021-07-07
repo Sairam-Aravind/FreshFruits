@@ -49,6 +49,8 @@ const loadFirst = async () => {
   proceedButton.style.backgroundColor = "#0F56B3";
   proceedButton.style.cursor = "pointer";
 };
+//module.exports = loadFirst
+
 // this method controls the entire content that is rendered apart from the first page. it removes the contents of the old tag and replaces them with new tags based on the questions json
 const genrateQnA = (prevIndex, index) => {
   let question = JSON.parse(localStorage.getItem("questions"));
@@ -201,6 +203,7 @@ const onClickNext = () => {
     localStorage.setItem("index", index);
   }
 };
+//module.exports = onClickNext
 
 const onclickBack = () => {
   let index = localStorage.getItem("index");
@@ -214,6 +217,7 @@ const onclickBack = () => {
     localStorage.setItem("index", index);
   }
 };
+//module.exports = onclickBack
 
 const sendAnswers = answers => {
   console.log(answers);
