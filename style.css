@@ -137,6 +137,9 @@ body {
   display: none;
   flex-direction: column;
 }
+.radio-button-container input {
+  margin: 16px;
+}
 .survey-end {
   display: none;
   justify-content: center;
