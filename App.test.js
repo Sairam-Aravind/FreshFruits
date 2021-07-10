@@ -104,6 +104,10 @@ test("for any input check if the value is stored", () => {
   let index = "0"
   onPerformAction(answers, value, index)
   expect(answers[index]).toBe("10")
+  index = "1"
+  expect(answers[index]).toBe("10")
+  index = "2"
+  expect(answers[index]).toBe(true)
   expect(localStorage.setItem).toHaveBeenCalled()
 })
 
@@ -155,4 +159,5 @@ test("creating a radio button", () => {
   let answers = ["10", "10", true, ""]
   let elements = createRadioElement(options, questionType, index, answers)
   expect(elements[2]).toBeFalsy()
+  expect(elements[0].name).toBe("Boolean")
 })
